@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { FaShieldAlt, FaHandshake, FaGlobeAfrica, FaTruck, FaLeaf, FaCertificate, FaChartLine, FaHeadset } from "react-icons/fa";
+import { FaShieldAlt, FaCertificate } from "react-icons/fa";
 import WhyChooseUsComponent from "@/components/WhyChooseUs";
 
 export const metadata: Metadata = {
@@ -23,9 +23,9 @@ export default function WhyChooseUsPage() {
       <WhyChooseUsComponent />
 
       <section className="section-padding bg-white border-t border-gray-100">
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div>
+        <div className="site-container">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="content-readable">
               <h2 className="text-2xl sm:text-3xl font-bold mb-6" style={{ color: "var(--color-green-dark)" }}>Commitment to Quality & Compliance</h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 At DNG FoodStuff, quality is not just a promise; it is a guarantee built into our supply chain. We understand that in the food industry, compliance with international health and safety standards is non-negotiable.
@@ -49,9 +49,9 @@ export default function WhyChooseUsPage() {
             </div>
             
             {/* Certifications Grid (Placeholder visually) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
                {["ISO 9001:2015", "HACCP Certified", "Halal Certified", "Global G.A.P", "FDA Registered", "FSSAI (India)"].map((cert, i) => (
-                 <div key={i} className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center hover:border-green-500 hover:shadow-md transition-all">
+                 <div key={i} className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center hover:border-green-500 hover:shadow-md transition-all h-full">
                    <FaShieldAlt className="mx-auto mb-3 text-3xl" style={{ color: "var(--color-green)" }} />
                    <div className="font-bold text-gray-800 text-sm">{cert}</div>
                  </div>

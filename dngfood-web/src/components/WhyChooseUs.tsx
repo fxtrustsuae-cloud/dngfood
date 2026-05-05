@@ -60,15 +60,14 @@ export default function WhyChooseUs() {
 
   return (
     <section ref={ref} className="section-padding bg-section-light">
-      <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+      <div className="site-container section-stack">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="section-header"
         >
-          <div className="section-line mx-auto mb-4" />
           <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "var(--color-gold)" }}>
             Our Advantage
           </p>
@@ -81,14 +80,14 @@ export default function WhyChooseUs() {
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="feature-card group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300"
+              className="feature-card group bg-white rounded-2xl p-6 lg:p-8 shadow-sm hover:shadow-lg transition-all duration-300"
               style={{ border: "1px solid rgba(11,93,59,0.08)" }}
             >
               <div className="feature-icon-box mb-5">

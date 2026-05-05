@@ -30,8 +30,8 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 pt-24 sm:pt-32 pb-10 sm:pb-16 flex-grow flex items-center">
-        <div className="max-w-5xl">
+      <div className="relative z-10 site-container-wide pt-28 sm:pt-32 pb-10 sm:pb-16 flex-grow flex items-center">
+        <div className="content-narrow">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="text-3xl sm:text-4xl lg:text-7xl font-black text-white leading-tight mb-4 sm:mb-6"
+            className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-4 sm:mb-6"
           >
             Premium{" "}
             <span style={{ color: "var(--color-gold)" }}>Agro</span>
@@ -81,7 +81,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
-            className="flex flex-col sm:flex-row gap-4 mb-12 sm:mb-16"
+            className="cta-row mb-12 sm:mb-16"
           >
             <Link href="/products" className="btn-gold text-center" id="hero-view-products">
               View Our Products <FaArrowRight className="inline ml-2" size={14} />
@@ -96,7 +96,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
-            className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl"
           >
             {[
               { icon: FaShieldAlt, text: "Quality Certified" },
@@ -127,19 +127,19 @@ export default function HeroSection() {
         transition={{ duration: 0.7, delay: 0.75 }}
         className="relative z-20 w-full mt-8"
       >
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+        <div className="site-container-wide">
           <div
             className="rounded-t-2xl overflow-hidden"
             style={{ background: "rgba(201,162,39,0.9)", backdropFilter: "blur(10px)" }}
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center p-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center p-3 sm:p-4">
               {[
                 { value: "10+", label: "Years of Excellence" },
                 { value: "20+", label: "Countries Served" },
                 { value: "500+", label: "Global Clients" },
                 { value: "50K+", label: "Tons Traded Annually" },
               ].map((stat) => (
-                <div key={stat.label} className="py-4 px-2 bg-[#c09923] rounded-lg shadow-sm">
+                <div key={stat.label} className="min-h-28 py-4 px-2 bg-[#c09923] rounded-lg shadow-sm flex flex-col items-center justify-center">
                   <div className="text-2xl sm:text-3xl font-black text-white mb-1">{stat.value}</div>
                   <div className="text-yellow-100 text-xs sm:text-sm font-semibold tracking-wide uppercase leading-tight">{stat.label}</div>
                 </div>

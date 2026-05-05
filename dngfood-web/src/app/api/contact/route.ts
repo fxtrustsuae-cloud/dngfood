@@ -2,12 +2,9 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    await request.json();
     
-    // In a real application, you would use nodemailer or a service like Resend/SendGrid
-    // to actually send the email. For this demo, we'll just log it and return success.
-    
-    console.log("Contact form submission received:", body);
+    // In production, connect this to SMTP/Resend/SendGrid before relying on form delivery.
     
     // Example NodeMailer setup (commented out):
     /*

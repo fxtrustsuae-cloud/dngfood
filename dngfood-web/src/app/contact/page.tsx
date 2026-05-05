@@ -39,7 +39,7 @@ function ContactFormContent() {
       } else {
         toast.error("Failed to send message. Please try again or use WhatsApp.");
       }
-    } catch (error) {
+    } catch {
       toast.error("An error occurred. Please try again later.");
     } finally {
       setLoading(false);
@@ -52,7 +52,7 @@ function ContactFormContent() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
           <input type="text" name="name" required value={formData.name} onChange={handleChange} className="form-input" placeholder="John Doe" />
@@ -110,17 +110,17 @@ export default function ContactPage() {
       </div>
 
       <section className="section-padding bg-section-light relative">
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="site-container">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
             
             {/* Contact Info */}
-            <div className="lg:col-span-1 space-y-8">
+            <div className="lg:col-span-1 space-y-6 lg:space-y-8">
               <div>
                 <h2 className="text-3xl font-black mb-2" style={{ color: "var(--color-green-dark)" }}>Get in Touch</h2>
                 <p className="text-gray-600 mb-8">Our team is ready to assist you with global sourcing and quotations.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 space-y-6">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center bg-green-50 text-green-700 flex-shrink-0">
                     <FaMapMarkerAlt size={20} />
@@ -154,7 +154,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-8 border border-yellow-200">
+              <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-6 sm:p-8 border border-yellow-200">
                 <h4 className="font-bold text-yellow-800 mb-3 flex items-center gap-2">
                   <FaWhatsapp size={24} className="text-green-600" /> WhatsApp Direct
                 </h4>
@@ -167,11 +167,11 @@ export default function ContactPage() {
 
             {/* Form */}
             <div className="lg:col-span-2" id="quote">
-              <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 relative overflow-hidden">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-gray-100 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-green-50 rounded-bl-full -z-0 opacity-50"></div>
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold mb-2" style={{ color: "var(--color-green-dark)" }}>Request a Quote</h3>
-                  <p className="text-gray-500 mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+                  <p className="text-gray-500 mb-8">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
                   
                   <Suspense fallback={<div className="p-8 text-center">Loading form...</div>}>
                     <ContactFormContent />
@@ -185,17 +185,21 @@ export default function ContactPage() {
       </section>
 
       {/* Map */}
-      <section className="h-96 w-full relative">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126844.06233075558!2d3.269493134375!3d6.536968800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng" 
-          width="100%" 
-          height="100%" 
-          style={{ border: 0 }} 
-          allowFullScreen 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-          title="DNG FoodStuff Office Location"
-        ></iframe>
+      <section className="relative py-16">
+        <div className="site-container">
+          <div className="h-96 w-full overflow-hidden rounded-xl lg:w-300">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126844.06233075558!2d3.269493134375!3d6.536968800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="DNG FoodStuff Office Location"
+            ></iframe>
+          </div>
+        </div>
       </section>
     </div>
   );

@@ -10,9 +10,7 @@ export default function Home() {
     <>
       <HeroSection />
       <AboutPreview />
-      <div className="brand-divider" />
       <ProductGrid />
-      <div className="brand-divider" />
       <WhyChooseUs />
       <Testimonials />
       <CTABanner />

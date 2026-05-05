@@ -53,15 +53,14 @@ export default function ProductGrid() {
 
   return (
     <section ref={ref} className="section-padding bg-white">
-      <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+      <div className="site-container section-stack">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="section-header"
         >
-          <div className="section-line mx-auto mb-4" />
           <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "var(--color-gold)" }}>
             What We Offer
           </p>
@@ -69,12 +68,12 @@ export default function ProductGrid() {
             Our Product <span style={{ color: "var(--color-gold)" }}>Categories</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-            From farm to port, we supply the world's most sought-after food commodities with unmatched quality and reliability.
+            From farm to port, we supply the world&apos;s most sought-after food commodities with unmatched quality and reliability.
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.id}
@@ -108,17 +107,17 @@ export default function ProductGrid() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3
                   className="text-xl font-bold mb-2 group-hover:text-green-700 transition-colors"
                   style={{ color: "var(--color-green-dark)" }}
                 >
                   {cat.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                <p className="text-gray-500 text-sm leading-relaxed mb-5 flex-1">
                   {cat.description}
                 </p>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4 pt-2">
                   <div className="flag-badge text-xs">{cat.origin.split("·")[0].trim()}</div>
                   <Link
                     href={`/products#${cat.id}`}
@@ -138,12 +137,12 @@ export default function ProductGrid() {
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="rounded-2xl flex flex-col items-center justify-center p-10 text-center bg-green-gradient text-white"
+            className="rounded-2xl flex h-full min-h-[360px] flex-col items-center justify-center p-8 lg:p-10 text-center bg-green-gradient text-white"
           >
             <div className="text-4xl mb-4">🌾</div>
             <h3 className="text-2xl font-bold mb-3">Custom Order?</h3>
             <p className="text-green-100 text-sm mb-6 leading-relaxed">
-              Don't see what you need? We source and supply custom commodity requirements.
+              Don&apos;t see what you need? We source and supply custom commodity requirements.
             </p>
             <Link href="/contact" className="btn-gold text-sm" id="product-grid-custom">
               Get In Touch
@@ -156,7 +155,7 @@ export default function ProductGrid() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.7 }}
-          className="text-center mt-12"
+          className="text-center"
         >
           <Link href="/products" className="btn-primary" id="product-grid-view-all">
             View All Products <FaArrowRight className="inline ml-2" size={13} />

@@ -38,9 +38,9 @@ export default function AboutPage() {
 
       {/* Company Overview */}
       <section className="section-padding bg-white">
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+        <div className="site-container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="content-readable">
               <div className="section-line mb-4" />
               <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "var(--color-gold)" }}>
                 Our Story
@@ -56,13 +56,14 @@ export default function AboutPage() {
                 Our expertise lies in sourcing premium quality Rice, Sugar, Pulses, Grains, and Edible Oils directly from origin countries and delivering them efficiently to destinations worldwide. We pride ourselves on our deep market knowledge, robust logistics network, and unwavering commitment to quality.
               </p>
             </div>
-            <div className="relative">
+            <div className="relative max-w-2xl lg:max-w-none mx-auto lg:mx-0 w-full">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
                 <Image
                   src="/images/about_warehouse.png"
                   alt="DNG FoodStuff Operations"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
             </div>
@@ -72,18 +73,18 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="py-20 bg-section-light">
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-10 rounded-2xl shadow-sm border-t-4" style={{ borderColor: "var(--color-green)" }}>
+        <div className="site-container">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+            <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-sm border-t-4 h-full" style={{ borderColor: "var(--color-green)" }}>
               <h3 className="text-2xl font-bold mb-4" style={{ color: "var(--color-green-dark)" }}>Our Mission</h3>
               <p className="text-gray-600 leading-relaxed">
                 To provide seamless, reliable, and cost-effective sourcing and distribution of high-quality agro commodities, empowering businesses globally while ensuring food security and sustainability.
               </p>
             </div>
-            <div className="bg-white p-10 rounded-2xl shadow-sm border-t-4" style={{ borderColor: "var(--color-gold)" }}>
+            <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-sm border-t-4 h-full" style={{ borderColor: "var(--color-gold)" }}>
               <h3 className="text-2xl font-bold mb-4" style={{ color: "var(--color-green-dark)" }}>Our Vision</h3>
               <p className="text-gray-600 leading-relaxed">
-                To be the world's most trusted and preferred partner in the agro commodity trading industry, recognized for our integrity, operational excellence, and positive impact on global food chains.
+                To be the world&apos;s most trusted and preferred partner in the agro commodity trading industry, recognized for our integrity, operational excellence, and positive impact on global food chains.
               </p>
             </div>
           </div>
@@ -92,11 +93,11 @@ export default function AboutPage() {
 
       {/* Core Values */}
       <section className="section-padding bg-white">
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 text-center">
-          <h2 className="text-3xl font-black mb-12" style={{ color: "var(--color-green-dark)" }}>Our Core Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="site-container text-center section-stack">
+          <h2 className="text-3xl font-black" style={{ color: "var(--color-green-dark)" }}>Our Core Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
             {values.map((v) => (
-              <div key={v.title} className="p-6">
+              <div key={v.title} className="p-6 h-full">
                 <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-green-gradient text-white text-2xl">
                   <v.icon />
                 </div>
@@ -110,14 +111,14 @@ export default function AboutPage() {
 
       {/* Strengths */}
       <section className="section-padding bg-green-gradient text-white">
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+        <div className="site-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black mb-4">Our Strengths</h2>
             <p className="text-green-100">What makes us the preferred choice for global buyers</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 max-w-4xl mx-auto items-stretch">
             {strengths.map((s, i) => (
-              <div key={i} className="flex items-center gap-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+              <div key={i} className="flex items-center gap-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm h-full">
                 <FaCheckCircle className="text-yellow-400 flex-shrink-0" size={20} />
                 <span className="font-medium">{s}</span>
               </div>

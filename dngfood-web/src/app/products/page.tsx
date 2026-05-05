@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { FaDownload, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { FaDownload, FaWhatsapp } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Products | DNG FoodStuff",
@@ -69,13 +69,13 @@ export default function ProductsPage() {
       </div>
 
       <section className="section-padding bg-section-light">
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-          <div className="space-y-24">
+        <div className="site-container">
+          <div className="space-y-20 lg:space-y-24">
             {products.map((product, index) => (
               <div key={product.id} id={product.id} className="scroll-mt-24">
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
                   {/* Image */}
-                  <div className={`relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] ${index % 2 !== 0 ? 'lg:order-2' : ''}`}>
+                  <div className={`relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] max-w-2xl lg:max-w-none mx-auto lg:mx-0 w-full ${index % 2 !== 0 ? 'lg:order-2' : ''}`}>
                     <Image
                       src={product.image}
                       alt={product.title}
@@ -88,7 +88,7 @@ export default function ProductsPage() {
                   </div>
                   
                   {/* Content */}
-                  <div className={index % 2 !== 0 ? 'lg:order-1' : ''}>
+                  <div className={`content-readable ${index % 2 !== 0 ? 'lg:order-1' : ''}`}>
                     <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "var(--color-green-dark)" }}>{product.title}</h2>
                     <p className="text-gray-600 mb-6 leading-relaxed">{product.desc}</p>
                     
@@ -117,7 +117,7 @@ export default function ProductsPage() {
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-4">
+                    <div className="cta-row">
                       <Link href={`/contact?product=${product.id}#quote`} className="btn-primary">
                         Request Quote
                       </Link>
@@ -135,26 +135,26 @@ export default function ProductsPage() {
 
       {/* Packaging Showcase */}
       <section className="section-padding bg-white border-t border-gray-100">
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-          <div className="text-center mb-16">
+        <div className="site-container section-stack">
+          <div className="section-header">
             <h2 className="text-3xl sm:text-4xl font-black mb-4" style={{ color: "var(--color-green-dark)" }}>Premium <span style={{ color: "var(--color-gold)" }}>Packaging</span></h2>
             <p className="text-gray-500 max-w-2xl mx-auto">We provide high-quality, branded packaging that protects your commodities and builds trust with end consumers.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="bg-gray-50 rounded-3xl p-8 sm:p-16 flex items-center justify-center relative overflow-hidden group">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <div className="bg-gray-50 rounded-3xl p-8 sm:p-12 lg:p-16 flex items-center justify-center relative overflow-hidden group min-h-[360px]">
               <div className="absolute inset-0 bg-green-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
               <Image 
-                src="/images/packaging_rice.png" 
+                src="/images/dng-basmati-rice-bag.webp" 
                 alt="DNG FoodStuff Branded Rice Bag" 
-                width={400} 
-                height={500} 
-                className="relative z-10 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-                style={{ width: '100%', height: 'auto', maxWidth: '400px' }}
+                width={626} 
+                height={971} 
+                className="relative z-10 rounded-2xl object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-105"
+                style={{ width: '100%', height: 'auto', maxWidth: '360px' }}
               />
             </div>
             
-            <div className="space-y-8">
+            <div className="space-y-8 content-readable">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "rgba(201,162,39,0.15)", color: "var(--color-gold)" }}>
                   OEM & Custom Branding Available
@@ -171,7 +171,7 @@ export default function ProductsPage() {
                   "Custom labeling for large volume buyers"
                 ].map((feature, i) => (
                   <li key={i} className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "rgba(11,93,59,0.1)", color: "var(--color-green)" }}>
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(11,93,59,0.1)", color: "var(--color-green)" }}>
                       ✓
                     </div>
                     <span className="font-medium text-gray-800 text-sm">{feature}</span>
@@ -185,11 +185,14 @@ export default function ProductsPage() {
 
       {/* Product Catalog CTA */}
       <section className="py-20 bg-green-gradient text-white text-center">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="site-container max-w-4xl">
           <h2 className="text-3xl font-bold mb-4">Download Our Full Product Catalog</h2>
           <p className="text-green-100 mb-8 max-w-2xl mx-auto">Get detailed specifications, quality parameters, and loading capacities for all our commodities in our comprehensive product brochure.</p>
-          <a href="/brochure.pdf" download className="btn-gold inline-flex items-center gap-2">
-            <FaDownload /> Download PDF Catalog
+          <a href="/brochure.pdf" download className="btn-gold inline-flex items-center justify-center gap-2 align-middle leading-none">
+            <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center">
+              <FaDownload size={14} />
+            </span>
+            <span className="inline-flex items-center leading-none">Download PDF Catalog</span>
           </a>
         </div>
       </section>

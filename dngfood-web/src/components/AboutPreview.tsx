@@ -17,14 +17,14 @@ export default function AboutPreview() {
 
   return (
     <section ref={ref} className="section-padding" style={{ background: "var(--color-off-white)" }}>
-      <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="site-container">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Image Side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="relative"
+            className="relative max-w-2xl lg:max-w-none mx-auto lg:mx-0 w-full"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
               <Image
@@ -60,13 +60,13 @@ export default function AboutPreview() {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
+            className="content-readable"
           >
-            <div className="section-line mb-4" />
             <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "var(--color-gold)" }}>
               Who We Are
             </p>
             <h2 className="text-3xl sm:text-4xl font-black mb-6" style={{ color: "var(--color-green-dark)" }}>
-              Africa's Premier Agro<br />
+              Africa&apos;s Premier Agro<br />
               <span style={{ color: "var(--color-gold)" }}>Commodity Trader</span>
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
@@ -82,7 +82,7 @@ export default function AboutPreview() {
             </p>
 
             {/* Strengths */}
-            <ul className="space-y-3 mb-10">
+            <ul className="grid gap-3 mb-10">
               {strengths.map((item, i) => (
                 <motion.li
                   key={i}

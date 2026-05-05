@@ -32,14 +32,13 @@ export default function Testimonials() {
 
   return (
     <section ref={ref} className="section-padding bg-white">
-      <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+      <div className="site-container section-stack">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="section-header"
         >
-          <div className="section-line mx-auto mb-4" />
           <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "var(--color-gold)" }}>
             What Clients Say
           </p>
@@ -48,7 +47,7 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
@@ -62,8 +61,8 @@ export default function Testimonials() {
                 size={28}
                 style={{ color: "var(--color-gold)", opacity: 0.6 }}
               />
-              <p className="text-gray-600 text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
-              <div className="flex items-center justify-between">
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 italic flex-1">&ldquo;{t.text}&rdquo;</p>
+              <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="font-bold text-sm" style={{ color: "var(--color-green-dark)" }}>
                     {t.name}

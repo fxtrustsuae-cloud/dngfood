@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { FaBars, FaTimes, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -27,16 +27,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
   return (
     <>
-      {/* Top Bar */}
+      {/* Top Bar
       <div
         style={{ background: "var(--color-green-dark)" }}
-        className="hidden md:flex items-center justify-between px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 py-2 text-white text-sm w-full"
+        className="hidden md:flex items-center justify-between site-container-wide py-2 text-white text-sm"
       >
         <div className="flex items-center gap-6">
           <a
@@ -54,12 +50,12 @@ export default function Navbar() {
             <span>info@dngfoodstuff.com</span>
           </a>
         </div>
-        <div className="flex items-center gap-4 text-xs">
+        <div className="flex items-center gap-4 text-xs whitespace-nowrap">
           <span className="text-yellow-300">🌍 Global Export | Import Ready</span>
           <span>|</span>
           <span>Mon – Fri: 8AM – 6PM</span>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Navbar */}
       <nav
@@ -74,30 +70,24 @@ export default function Navbar() {
             : {}
         }
       >
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+        <div className="site-container-wide">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
-              <div
-                className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 rounded-lg flex items-center justify-center text-white font-black text-lg sm:text-xl shadow-lg group-hover:scale-105 transition-transform"
-                style={{
-                  background: "linear-gradient(135deg, #C9A227, #a8831a)",
-                }}
-              >
-                DNG
-              </div>
-              <div>
-                <div className="text-white font-black text-lg sm:text-xl leading-none tracking-wide">
-                  DNG <span style={{ color: "var(--color-gold)" }}>FoodStuff</span>
-                </div>
-                <div className="text-[10px] sm:text-xs text-gray-300 leading-none tracking-widest font-medium mt-1">
-                  AGRO COMMODITIES
-                </div>
-              </div>
+            <Link href="/" className="group flex items-center">
+              <span className="inline-flex h-16 w-[190px] items-center transition-transform group-hover:scale-105 sm:w-[220px]">
+                <Image
+                  src="/images/dng-logo-latest.webp"
+                  alt="DNG FoodStuff"
+                  width={1600}
+                  height={965}
+                  priority
+                  className="h-full w-full object-contain"
+                />
+              </span>
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center justify-center gap-7 xl:gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -152,6 +142,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    onClick={() => setMenuOpen(false)}
                     className={`block py-3 px-2 text-base font-medium border-b border-green-800 ${
                       pathname === link.href
                         ? "text-yellow-400"
@@ -164,6 +155,7 @@ export default function Navbar() {
               ))}
               <Link
                 href="/contact#quote"
+                onClick={() => setMenuOpen(false)}
                 className="btn-gold mt-4 w-full text-center block"
                 id="mobile-cta-quote"
               >

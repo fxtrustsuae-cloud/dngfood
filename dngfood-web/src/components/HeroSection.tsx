@@ -1,6 +1,5 @@
-"use client";
-import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { FaArrowRight, FaShieldAlt, FaGlobeAfrica, FaTruck } from "react-icons/fa";
 
 export default function HeroSection() {
@@ -10,10 +9,16 @@ export default function HeroSection() {
       className="relative min-h-screen flex flex-col justify-between overflow-hidden"
     >
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/hero_bg.png')" }}
-      >
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero_bg.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+          aria-hidden="true"
+        />
         <div className="watermark-overlay opacity-30 text-4xl" style={{ bottom: '40px', right: '40px' }} />
       </div>
       {/* Overlay */}
@@ -33,10 +38,7 @@ export default function HeroSection() {
       <div className="relative z-10 site-container-wide pt-28 sm:pt-32 pb-10 sm:pb-16 flex-grow flex items-center">
         <div className="content-narrow">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6"
             style={{
               background: "rgba(201,162,39,0.15)",
@@ -45,13 +47,10 @@ export default function HeroSection() {
             }}
           >
             🌍 Trusted Global Agro Commodities Trader
-          </motion.div>
+          </div>
 
           {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+          <h1
             className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-4 sm:mb-6"
           >
             Premium{" "}
@@ -62,25 +61,19 @@ export default function HeroSection() {
             <span className="text-xl sm:text-3xl lg:text-6xl font-bold text-gray-200">
               Sourced. Traded. Delivered.
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+          <p
             className="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed mb-8 sm:mb-10"
           >
             DNG FoodStuff connects global markets with premium food commodities
             — rice, sugar, pulses, grains, and edible oils. Your trusted partner
             for import & export excellence.
-          </motion.p>
+          </p>
 
           {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45 }}
+          <div
             className="cta-row mb-12 sm:mb-16"
           >
             <Link href="/products" className="btn-gold text-center" id="hero-view-products">
@@ -89,13 +82,10 @@ export default function HeroSection() {
             <Link href="/contact#quote" className="btn-outline-white text-center" id="hero-request-quote">
               Request a Quote
             </Link>
-          </motion.div>
+          </div>
 
           {/* Trust Badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
+          <div
             className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl"
           >
             {[
@@ -116,15 +106,12 @@ export default function HeroSection() {
                 {text}
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Stats Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.75 }}
+      <div
         className="relative z-20 w-full mt-8"
       >
         <div className="site-container-wide">
@@ -147,7 +134,7 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

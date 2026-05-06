@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -70,17 +69,16 @@ export default function Navbar() {
             : {}
         }
       >
-        <div className="site-container-wide">
-          <div className="flex items-center justify-between h-20">
+        <div className="w-dvw max-w-none px-4 sm:px-6 lg:mx-auto lg:w-[min(calc(100dvw-48px),1320px)] lg:px-0">
+          <div className="relative flex h-20 w-full min-w-0 items-center justify-between gap-3">
             {/* Logo */}
-            <Link href="/" className="group flex items-center">
-              <span className="inline-flex h-16 w-[190px] items-center transition-transform group-hover:scale-105 sm:w-[220px]">
+            <Link href="/" className="group flex min-w-0 flex-1 items-center lg:flex-none">
+              <span className="inline-flex h-14 w-[clamp(118px,42vw,145px)] max-w-full items-center justify-start transition-transform group-hover:scale-105 sm:h-16 sm:w-[220px]">
                 <Image
                   src="/images/dng-logo-latest.webp"
                   alt="DNG FoodStuff"
                   width={1600}
                   height={965}
-                  priority
                   className="h-full w-full object-contain"
                 />
               </span>
@@ -112,9 +110,10 @@ export default function Navbar() {
 
             {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden text-white p-2 rounded-lg"
+              className="fixed left-[calc(100dvw-60px)] top-[18px] z-[80] flex h-11 w-11 items-center justify-center rounded-lg border border-white/30 bg-green-950 p-2 text-white shadow-md lg:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen}
               id="mobile-menu-toggle"
             >
               {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -123,47 +122,36 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden mobile-menu border-t border-green-700"
-              id="mobile-menu"
-            >
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.07 }}
+        {menuOpen && (
+          <div
+            className="lg:hidden mobile-menu border-t border-green-700"
+            id="mobile-menu"
+          >
+            {navLinks.map((link) => (
+              <div key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`block py-3 px-2 text-base font-medium border-b border-green-800 ${
+                    pathname === link.href
+                      ? "text-yellow-400"
+                      : "text-white hover:text-yellow-400"
+                  } transition-colors`}
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className={`block py-3 px-2 text-base font-medium border-b border-green-800 ${
-                      pathname === link.href
-                        ? "text-yellow-400"
-                        : "text-white hover:text-yellow-400"
-                    } transition-colors`}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-              <Link
-                href="/contact#quote"
-                onClick={() => setMenuOpen(false)}
-                className="btn-gold mt-4 w-full text-center block"
-                id="mobile-cta-quote"
-              >
-                Request Quote
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                  {link.label}
+                </Link>
+              </div>
+            ))}
+            <Link
+              href="/contact#quote"
+              onClick={() => setMenuOpen(false)}
+              className="btn-gold mt-4 w-full text-center block"
+              id="mobile-cta-quote"
+            >
+              Request Quote
+            </Link>
+          </div>
+        )}
       </nav>
     </>
   );

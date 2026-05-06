@@ -121,7 +121,7 @@ export default function ProductsPage() {
                       <Link href={`/contact?product=${product.id}#quote`} className="btn-primary">
                         Request Quote
                       </Link>
-                      <a href={`https://wa.me/23400000000?text=I'm interested in ${product.title}`} target="_blank" rel="noopener noreferrer" className="btn-outline-white !text-green-700 !border-green-700 hover:!bg-green-700 hover:!text-white flex items-center gap-2">
+                      <a href={`https://wa.me/971568441815?text=I'm interested in ${product.title}`} target="_blank" rel="noopener noreferrer" className="btn-outline-white !text-green-700 !border-green-700 hover:!bg-green-700 hover:!text-white flex items-center gap-2">
                         <FaWhatsapp size={16} /> WhatsApp
                       </a>
                     </div>

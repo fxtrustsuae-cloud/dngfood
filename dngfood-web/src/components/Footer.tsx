@@ -79,7 +79,7 @@ export default function Footer() {
                 { icon: FaTwitter, href: "#", label: "Twitter" },
                 { icon: FaLinkedin, href: "#", label: "LinkedIn" },
                 { icon: FaInstagram, href: "#", label: "Instagram" },
-                { icon: FaWhatsapp, href: "https://wa.me/23400000000", label: "WhatsApp" },
+                { icon: FaWhatsapp, href: "https://wa.me/971568441815", label: "WhatsApp" },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -217,8 +217,10 @@ export default function Footer() {
                   <FaMapMarkerAlt size={13} style={{ color: "var(--color-gold)" }} />
                 </div>
                 <span className="text-sm leading-6 text-gray-400">
-                  Lagos, Nigeria<br />
-                  West Africa
+                  Ware house no.4, 21 A Street,<br />
+                  Rising Star Garage, Backside,<br />
+                  Ras Al Khor Ind 2, Dubai,<br />
+                  United Arab Emirates
                 </span>
               </li>
               <li className="flex items-center justify-center gap-3 md:justify-start">
@@ -229,10 +231,10 @@ export default function Footer() {
                   <FaPhoneAlt size={13} style={{ color: "var(--color-gold)" }} />
                 </div>
                 <a
-                  href="tel:+23400000000"
+                  href="tel:+97142381006"
                   className="text-sm leading-6 text-gray-400 transition-colors hover:text-white"
                 >
-                  +234 000 000 0000
+                  +971-42381006
                 </a>
               </li>
               <li className="flex items-center justify-center gap-3 md:justify-start">
@@ -257,7 +259,7 @@ export default function Footer() {
                   <FaWhatsapp size={13} style={{ color: "var(--color-gold)" }} />
                 </div>
                 <a
-                  href="https://wa.me/23400000000"
+                  href="https://wa.me/971568441815"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm leading-6 text-gray-400 transition-colors hover:text-white"

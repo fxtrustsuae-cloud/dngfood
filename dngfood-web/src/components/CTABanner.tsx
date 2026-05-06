@@ -53,7 +53,7 @@ export default function CTABanner() {
               <span className="inline-flex items-center justify-center leading-none">Request a Quote</span>
             </Link>
             <a
-              href="https://wa.me/23400000000?text=Hello%20DNG%20FoodStuff!"
+              href="https://wa.me/971568441815?text=Hello%20DNG%20FoodStuff!"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline-white flex min-h-[34px] w-full items-center justify-center gap-1.5 !rounded-full !px-4 !py-1.5 !text-xs !leading-none"

@@ -35,11 +35,11 @@ export default function Navbar() {
       >
         <div className="flex items-center gap-6">
           <a
-            href="tel:+23400000000"
+            href="tel:+97142381006"
             className="flex items-center gap-2 hover:text-yellow-300 transition-colors"
           >
             <FaPhoneAlt size={12} />
-            <span>+234 000 000 0000</span>
+            <span>+971-42381006</span>
           </a>
           <a
             href="mailto:info@dngfoodstuff.com"

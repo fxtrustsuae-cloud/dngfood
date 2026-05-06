@@ -127,7 +127,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Head Office</h4>
-                    <p className="text-sm text-gray-600">123 Trade Center, Lagos, Nigeria. West Africa.</p>
+                    <p className="text-sm text-gray-600">Ware house no.4, 21 A Street, Rising Star Garage, Backside, Ras Al Khor Ind 2, Dubai, United Arab Emirates</p>
                   </div>
                 </div>
 
@@ -137,8 +137,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Phone</h4>
-                    <p className="text-sm text-gray-600"><a href="tel:+23400000000" className="hover:text-green-700">+234 000 000 0000</a></p>
-                    <p className="text-sm text-gray-600"><a href="tel:+23400000001" className="hover:text-green-700">+234 000 000 0001</a></p>
+                    <p className="text-sm text-gray-600"><a href="tel:+97142381006" className="hover:text-green-700">+971-42381006</a></p>
                   </div>
                 </div>
 
@@ -159,7 +158,7 @@ export default function ContactPage() {
                   <FaWhatsapp size={24} className="text-green-600" /> WhatsApp Direct
                 </h4>
                 <p className="text-sm text-yellow-700 mb-4">Need an immediate response? Chat with our sales agents directly on WhatsApp.</p>
-                <a href="https://wa.me/23400000000" target="_blank" rel="noopener noreferrer" className="btn-gold w-full flex justify-center py-3">
+                <a href="https://wa.me/971568441815" target="_blank" rel="noopener noreferrer" className="btn-gold w-full flex justify-center py-3">
                   Start Chat
                 </a>
               </div>
